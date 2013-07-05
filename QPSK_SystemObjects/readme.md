@@ -1,5 +1,7 @@
 This design is not finished
 
+The goal of this tutorial project is to demonstrate the use of MATLAB to HDL translation for building a QPSK transceiver. The unique element of this design is the liberal use of System Objects in the design.
+
 Files in this directory provide a demonstration for a complete QPSK ad hoc wireless transceiver.
 
 The complete set of code for the physical layer is written in MATLAB and translated to hardware using Mathworks HDL Coder. 
