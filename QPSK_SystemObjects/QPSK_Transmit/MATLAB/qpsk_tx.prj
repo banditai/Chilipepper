@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deployment-project plugin="plugin.matlabhdlcoder" plugin-version="R2013a">
-  <configuration target="target.matlab.hdlcoder" target-name="HDL Code Generation" name="qpsk_tb" location="C:\GIT\System_Object_Examples\QPSK Sandbox" file="C:\GIT\System_Object_Examples\QPSK Sandbox\qpsk_tb.prj">
+  <configuration target="target.matlab.hdlcoder" target-name="HDL Code Generation" name="qpsk_tx" location="C:\GIT\System_Object_Examples\QPSK Sandbox" file="C:\GIT\System_Object_Examples\QPSK Sandbox\qpsk_tx.prj">
     <param.AutoInferDefaultFile />
     <param.AutoInferUseVariableSize>false</param.AutoInferUseVariableSize>
     <param.AutoInferUseUnboundedSize>false</param.AutoInferUseUnboundedSize>
@@ -14,10 +14,10 @@
     <param.hdl.BuildDirectory>option.hdl.ProjectDirectory</param.hdl.BuildDirectory>
     <param.hdl.BuildSpecifiedDirectory />
     <param.fixptconv.InstrumentedMexFile>${PROJECT_ROOT}\codegen\qpsk_tx\fixpt\qpsk_tx_float_mex.mexw64</param.fixptconv.InstrumentedMexFile>
-    <param.fixptconv.InstrumentedBuildChecksum>2927451232</param.fixptconv.InstrumentedBuildChecksum>
+    <param.fixptconv.InstrumentedBuildChecksum>140319730</param.fixptconv.InstrumentedBuildChecksum>
     <param.fixptconv.ShowCoverage>true</param.fixptconv.ShowCoverage>
-    <param.fixptconv.FixedPointValidationChecksum>1036323781</param.fixptconv.FixedPointValidationChecksum>
-    <param.fixptconv.FixedPointSourceCodeChecksum>850884028</param.fixptconv.FixedPointSourceCodeChecksum>
+    <param.fixptconv.FixedPointValidationChecksum>3675842084</param.fixptconv.FixedPointValidationChecksum>
+    <param.fixptconv.FixedPointSourceCodeChecksum>3870698519</param.fixptconv.FixedPointSourceCodeChecksum>
     <param.fixptconv.FixedPointStaticAnalysisChecksum />
     <param.fixptconv.DefaultTestFile>${PROJECT_ROOT}\qpsk_tx_tb.m</param.fixptconv.DefaultTestFile>
     <param.fixptconv.ExcludedFixedPointVerificationFiles />
@@ -29,13 +29,13 @@
     <param.fixptconv.ProposeUsingDesignMinMaxAnd>option.fixptconv.ProposeUsingDesignMinMaxAnd.SimAndDerivedMinMax</param.fixptconv.ProposeUsingDesignMinMaxAnd>
     <param.transformedVariables>
       <ProposedTypesTableAnnotations>
-        <Function file="$(PROJECTDIR)\TB_i.m" name="TB_i" specialization="f266_TB_i">
+        <Function file="$(PROJECTDIR)\TB_i.m" name="TB_i" specialization="f565_TB_i">
           <Variable name="y" />
         </Function>
-        <Function file="$(PROJECTDIR)\TB_q.m" name="TB_q" specialization="f267_TB_q">
+        <Function file="$(PROJECTDIR)\TB_q.m" name="TB_q" specialization="f566_TB_q">
           <Variable name="y" />
         </Function>
-        <Function file="$(PROJECTDIR)\qpsk_tx_byte2sym.m" name="qpsk_tx_byte2sym" specialization="f380_qpsk_tx_byte2sym">
+        <Function file="$(PROJECTDIR)\qpsk_tx_byte2sym.m" name="qpsk_tx_byte2sym" specialization="f677_qpsk_tx_byte2sym">
           <Variable name="OS_RATE" />
           <Variable name="PAD_BITS" />
           <Variable name="d_out" />
@@ -47,10 +47,10 @@
           <Variable name="tbi" />
           <Variable name="tbq" />
         </Function>
-        <Function file="$(PROJECTDIR)\SRRC.m" name="SRRC" specialization="f381_SRRC">
+        <Function file="$(PROJECTDIR)\SRRC.m" name="SRRC" specialization="f678_SRRC">
           <Variable name="y" />
         </Function>
-        <Function file="$(PROJECTDIR)\qpsk_srrc.m" name="qpsk_srrc" specialization="f387_qpsk_srrc">
+        <Function file="$(PROJECTDIR)\qpsk_srrc.m" name="qpsk_srrc" specialization="f684_qpsk_srrc">
           <Variable name="OS_RATE" />
           <Variable name="buf" />
           <Variable name="d_in" />
@@ -59,25 +59,44 @@
           <Variable name="i1" />
         </Function>
         <Function file="$(PROJECTDIR)\qpsk_tx.m" name="qpsk_tx">
+          <Variable name="CRC_DELAY" />
           <Variable name="CRC_VALID" />
+          <Variable name="ENC_VALID" />
           <Variable name="HEADER_BITS" />
+          <Variable name="HEADER_DELAY" />
+          <Variable name="INTERLEAVE_DELAY" />
+          <Variable name="OS_RATE" />
+          <Variable name="RSBytes" />
+          <Variable name="RS_DELAY" />
+          <Variable name="SYM_RATE" />
+          <Variable name="TRANSMIT_DONE" />
           <Variable name="d_b2s" />
           <Variable name="d_ssrc" />
           <Variable name="dataCrcEnc" />
-          <Variable name="data_in" />
+          <Variable name="dataInterleaved" />
+          <Variable name="data_in">
+            <Column property="ProposedType" type="String" value="ufix8" />
+          </Variable>
+          <Variable name="encDataOut" />
           <Variable name="endCrcEnc" />
-          <Variable name="i1" />
+          <Variable name="endOut" />
+          <Variable name="i1">
+            <Column property="ProposedType" type="String" value="ufix20" />
+          </Variable>
           <Variable name="i_out" />
-          <Variable name="ml" />
+          <Variable name="ml">
+            <Column property="ProposedType" type="String" value="ufix10" />
+          </Variable>
           <Variable name="q_out" />
           <Variable name="startCrcEnc" />
+          <Variable name="startOut" />
           <Variable name="symIndex" />
         </Function>
       </ProposedTypesTableAnnotations>
     </param.transformedVariables>
     <param.computedVariables>
       <ComputedFixedPointData>
-        <Function file="$(PROJECTDIR)\TB_i.m" name="TB_i" specialization="f266_TB_i">
+        <Function file="$(PROJECTDIR)\TB_i.m" name="TB_i" specialization="f565_TB_i">
           <Variable name="y">
             <Column property="Kind" type="String" value="output" />
             <Column property="SimMin" type="Double" value="-1.0" />
@@ -92,7 +111,7 @@
             <Column property="ProposedType" type="String" value="sfix3" />
           </Variable>
         </Function>
-        <Function file="$(PROJECTDIR)\TB_q.m" name="TB_q" specialization="f267_TB_q">
+        <Function file="$(PROJECTDIR)\TB_q.m" name="TB_q" specialization="f566_TB_q">
           <Variable name="y">
             <Column property="Kind" type="String" value="output" />
             <Column property="SimMin" type="Double" value="-1.0" />
@@ -107,7 +126,7 @@
             <Column property="ProposedType" type="String" value="sfix3" />
           </Variable>
         </Function>
-        <Function file="$(PROJECTDIR)\qpsk_tx_byte2sym.m" name="qpsk_tx_byte2sym" specialization="f380_qpsk_tx_byte2sym">
+        <Function file="$(PROJECTDIR)\qpsk_tx_byte2sym.m" name="qpsk_tx_byte2sym" specialization="f677_qpsk_tx_byte2sym">
           <Variable name="OS_RATE">
             <Column property="SimMin" type="Double" value="8.0" />
             <Column property="SimMax" type="Double" value="8.0" />
@@ -148,15 +167,15 @@
           <Variable name="data_in">
             <Column property="Kind" type="String" value="input" />
             <Column property="SimMin" type="Double" value="0.0" />
-            <Column property="SimMax" type="Double" value="1.0" />
-            <MATLABType class="logical" complex="false">
+            <Column property="SimMax" type="Double" value="3.0" />
+            <MATLABType class="uint8" complex="false">
               <size>2</size>
               <size>1</size>
             </MATLABType>
             <Column property="IsInteger" type="Boolean" value="true" />
             <Column property="RoundMode" type="String" value="floor" />
             <Column property="OverflowMode" type="String" value="wrap" />
-            <Column property="ProposedType" type="String" value="ufix1" />
+            <Column property="ProposedType" type="String" value="ufix3" />
           </Variable>
           <Variable name="diLatch">
             <Column property="Kind" type="String" value="persistent" />
@@ -187,7 +206,7 @@
           <Variable name="i1">
             <Column property="Kind" type="String" value="input" />
             <Column property="SimMin" type="Double" value="1.0" />
-            <Column property="SimMax" type="Double" value="1456.0" />
+            <Column property="SimMax" type="Double" value="1480.0" />
             <MATLABType class="double" complex="false">
               <size>1</size>
               <size>1</size>
@@ -200,7 +219,7 @@
           <Variable name="sentTrain">
             <Column property="Kind" type="String" value="persistent" />
             <Column property="SimMin" type="Double" value="0.0" />
-            <Column property="SimMax" type="Double" value="172.0" />
+            <Column property="SimMax" type="Double" value="174.0" />
             <MATLABType class="double" complex="false">
               <size>1</size>
               <size>1</size>
@@ -235,7 +254,7 @@
             <Column property="ProposedType" type="String" value="sfix3" />
           </Variable>
         </Function>
-        <Function file="$(PROJECTDIR)\SRRC.m" name="SRRC" specialization="f381_SRRC">
+        <Function file="$(PROJECTDIR)\SRRC.m" name="SRRC" specialization="f678_SRRC">
           <Variable name="y">
             <Column property="Kind" type="String" value="output" />
             <Column property="SimMin" type="Double" value="-0.053692342207" />
@@ -250,7 +269,7 @@
             <Column property="ProposedType" type="String" value="sfix14_En14" />
           </Variable>
         </Function>
-        <Function file="$(PROJECTDIR)\qpsk_srrc.m" name="qpsk_srrc" specialization="f387_qpsk_srrc">
+        <Function file="$(PROJECTDIR)\qpsk_srrc.m" name="qpsk_srrc" specialization="f684_qpsk_srrc">
           <Variable name="OS_RATE">
             <Column property="SimMin" type="Double" value="8.0" />
             <Column property="SimMax" type="Double" value="8.0" />
@@ -317,7 +336,7 @@
           <Variable name="i1">
             <Column property="Kind" type="String" value="input" />
             <Column property="SimMin" type="Double" value="1.0" />
-            <Column property="SimMax" type="Double" value="1456.0" />
+            <Column property="SimMax" type="Double" value="1480.0" />
             <MATLABType class="double" complex="false">
               <size>1</size>
               <size>1</size>
@@ -329,7 +348,32 @@
           </Variable>
         </Function>
         <Function file="$(PROJECTDIR)\qpsk_tx.m" name="qpsk_tx">
+          <Variable name="CRC_DELAY">
+            <Column property="SimMin" type="Double" value="10.0" />
+            <Column property="SimMax" type="Double" value="10.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix4" />
+          </Variable>
           <Variable name="CRC_VALID">
+            <Column property="Kind" type="String" value="persistent" />
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="1.0" />
+            <MATLABType class="logical" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix1" />
+          </Variable>
+          <Variable name="ENC_VALID">
             <Column property="Kind" type="String" value="persistent" />
             <Column property="SimMin" type="Double" value="0.0" />
             <Column property="SimMax" type="Double" value="1.0" />
@@ -347,6 +391,91 @@
             <Column property="SimMin" type="Double" value="0.0" />
             <Column property="SimMax" type="Double" value="1.0" />
             <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix1" />
+          </Variable>
+          <Variable name="HEADER_DELAY">
+            <Column property="SimMin" type="Double" value="90.0" />
+            <Column property="SimMax" type="Double" value="90.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix7" />
+          </Variable>
+          <Variable name="INTERLEAVE_DELAY">
+            <Column property="SimMin" type="Double" value="9.0" />
+            <Column property="SimMax" type="Double" value="9.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix4" />
+          </Variable>
+          <Variable name="OS_RATE">
+            <Column property="SimMin" type="Double" value="8.0" />
+            <Column property="SimMax" type="Double" value="8.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix4" />
+          </Variable>
+          <Variable name="RSBytes">
+            <Column property="SimMin" type="Double" value="4.0" />
+            <Column property="SimMax" type="Double" value="4.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix3" />
+          </Variable>
+          <Variable name="RS_DELAY">
+            <Column property="SimMin" type="Double" value="4.0" />
+            <Column property="SimMax" type="Double" value="4.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix3" />
+          </Variable>
+          <Variable name="SYM_RATE">
+            <Column property="SimMin" type="Double" value="4.0" />
+            <Column property="SimMax" type="Double" value="4.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix3" />
+          </Variable>
+          <Variable name="TRANSMIT_DONE">
+            <Column property="Kind" type="String" value="output" />
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="1.0" />
+            <MATLABType class="logical" complex="false">
               <size>1</size>
               <size>1</size>
             </MATLABType>
@@ -380,7 +509,6 @@
             <Column property="ProposedType" type="String" value="sfix14_En13" />
           </Variable>
           <Variable name="dataCrcEnc">
-            <Column property="Kind" type="String" value="persistent" />
             <Column property="SimMin" type="Double" value="0.0" />
             <Column property="SimMax" type="Double" value="1.0" />
             <MATLABType class="logical" complex="false">
@@ -392,10 +520,23 @@
             <Column property="OverflowMode" type="String" value="wrap" />
             <Column property="ProposedType" type="String" value="ufix1" />
           </Variable>
+          <Variable name="dataInterleaved">
+            <Column property="Kind" type="String" value="persistent" />
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="3.0" />
+            <MATLABType class="uint8" complex="false">
+              <size>2</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix3" />
+          </Variable>
           <Variable name="data_in">
             <Column property="Kind" type="String" value="input" />
             <Column property="SimMin" type="Double" value="0.0" />
-            <Column property="SimMax" type="Double" value="121.0" />
+            <Column property="SimMax" type="Double" value="114.0" />
             <MATLABType class="uint8" complex="false">
               <size>1</size>
               <size>1</size>
@@ -405,7 +546,32 @@
             <Column property="OverflowMode" type="String" value="wrap" />
             <Column property="ProposedType" type="String" value="ufix7" />
           </Variable>
+          <Variable name="encDataOut">
+            <Column property="Kind" type="String" value="persistent" />
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="23.0" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix5" />
+          </Variable>
           <Variable name="endCrcEnc">
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="1.0" />
+            <MATLABType class="logical" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix1" />
+          </Variable>
+          <Variable name="endOut">
             <Column property="SimMin" type="Double" value="0.0" />
             <Column property="SimMax" type="Double" value="1.0" />
             <MATLABType class="logical" complex="false">
@@ -420,7 +586,7 @@
           <Variable name="i1">
             <Column property="Kind" type="String" value="input" />
             <Column property="SimMin" type="Double" value="1.0" />
-            <Column property="SimMax" type="Double" value="1456.0" />
+            <Column property="SimMax" type="Double" value="1480.0" />
             <MATLABType class="double" complex="false">
               <size>1</size>
               <size>1</size>
@@ -445,8 +611,8 @@
           </Variable>
           <Variable name="ml">
             <Column property="Kind" type="String" value="input" />
-            <Column property="SimMin" type="Double" value="18.0" />
-            <Column property="SimMax" type="Double" value="18.0" />
+            <Column property="SimMin" type="Double" value="16.0" />
+            <Column property="SimMax" type="Double" value="16.0" />
             <MATLABType class="double" complex="false">
               <size>1</size>
               <size>1</size>
@@ -470,6 +636,18 @@
             <Column property="ProposedType" type="String" value="sfix12" />
           </Variable>
           <Variable name="startCrcEnc">
+            <Column property="SimMin" type="Double" value="0.0" />
+            <Column property="SimMax" type="Double" value="1.0" />
+            <MATLABType class="logical" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+            <Column property="IsInteger" type="Boolean" value="true" />
+            <Column property="RoundMode" type="String" value="floor" />
+            <Column property="OverflowMode" type="String" value="wrap" />
+            <Column property="ProposedType" type="String" value="ufix1" />
+          </Variable>
+          <Variable name="startOut">
             <Column property="SimMin" type="Double" value="0.0" />
             <Column property="SimMax" type="Double" value="1.0" />
             <MATLABType class="logical" complex="false">
@@ -516,16 +694,16 @@
     <param.fixptconv.StaticAnalysisGlobalRangesOnly>false</param.fixptconv.StaticAnalysisGlobalRangesOnly>
     <param.hdl.Workflow>option.workflow.GenericAsicFpga</param.hdl.Workflow>
     <param.hdl.TargetPlatform />
-    <param.hdl.SynthesisTool>No synthesis tool specified</param.hdl.SynthesisTool>
+    <param.hdl.SynthesisTool>Xilinx ISE</param.hdl.SynthesisTool>
     <param.hdl.InputFrequency>100</param.hdl.InputFrequency>
     <param.hdl.TargetFrequency>100</param.hdl.TargetFrequency>
     <param.hdl.IPCoreName>qpsk_tx_fixpt_pcore</param.hdl.IPCoreName>
     <param.hdl.IPCoreVersion>v1.00.a</param.hdl.IPCoreVersion>
     <param.hdl.ExecutionMode>option.hdl.FreeRunning</param.hdl.ExecutionMode>
-    <param.hdl.SynthesisToolChipFamily />
-    <param.hdl.SynthesisToolDeviceName />
-    <param.hdl.SynthesisToolPackageName />
-    <param.hdl.SynthesisToolSpeedValue />
+    <param.hdl.SynthesisToolChipFamily>Zynq</param.hdl.SynthesisToolChipFamily>
+    <param.hdl.SynthesisToolDeviceName>xc7z020</param.hdl.SynthesisToolDeviceName>
+    <param.hdl.SynthesisToolPackageName>clg484</param.hdl.SynthesisToolPackageName>
+    <param.hdl.SynthesisToolSpeedValue>-1</param.hdl.SynthesisToolSpeedValue>
     <param.hdl.TargetInterface />
     <param.hdl.TargetLanguage>option.hdl.VHDL</param.hdl.TargetLanguage>
     <param.hdl.CheckConformance>false</param.hdl.CheckConformance>
@@ -643,10 +821,10 @@
     <param.hdl.SimulateFILTestBench>false</param.hdl.SimulateFILTestBench>
     <param.hdl.AdditionalSynthesisProjectFiles />
     <param.hdl.CriticalPathSource>option.hdl.Preroute</param.hdl.CriticalPathSource>
-    <param.hdl.EmbeddedSystemTool>Xilinx PlanAhead with Embedded Design</param.hdl.EmbeddedSystemTool>
+    <param.hdl.EmbeddedSystemTool />
     <param.hdl.ReferenceDesign>Base system with processor and the generated IP core</param.hdl.ReferenceDesign>
     <param.hdl.ReferenceDesignPath />
-    <param.hdl.EmbeddedSystemProjectFolder>codegen/pa_prj</param.hdl.EmbeddedSystemProjectFolder>
+    <param.hdl.EmbeddedSystemProjectFolder />
     <param.hdl.BitstreamBuildMode>false</param.hdl.BitstreamBuildMode>
     <unset>
       <param.AutoInferDefaultFile />
@@ -662,7 +840,6 @@
       <param.hdl.BuildDirectory />
       <param.hdl.BuildSpecifiedDirectory />
       <param.fixptconv.ShowCoverage />
-      <param.fixptconv.FixedPointStaticAnalysisChecksum />
       <param.fixptconv.ExcludedFixedPointVerificationFiles />
       <param.fixptconv.ExcludedFixedPointSimulationFiles />
       <param.fixptconv.FixptProposalKind />
@@ -803,6 +980,7 @@
       <param.hdl.SimulateFILTestBench />
       <param.hdl.AdditionalSynthesisProjectFiles />
       <param.hdl.CriticalPathSource />
+      <param.hdl.EmbeddedSystemTool />
       <param.hdl.ReferenceDesignPath />
       <param.hdl.EmbeddedSystemProjectFolder />
       <param.hdl.BitstreamBuildMode />

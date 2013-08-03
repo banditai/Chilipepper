@@ -23,7 +23,7 @@ function [d_out] = qpsk_tx_byte2sym(data_in, i1)
     end
     
     PAD_BITS = 24;
-    if sentTrain <= 65+PAD_BITS                 % Overhead bits
+    if sentTrain <= 65+PAD_BITS                     % Overhead bits
         if mod(i1,8) == 1 && sentTrain <= PAD_BITS  % sending pad bits
             diLatch = mod(sentTrain,2);
             diLatch = diLatch*2-1;
@@ -33,11 +33,13 @@ function [d_out] = qpsk_tx_byte2sym(data_in, i1)
             dqLatch = tbq(sentTrain-PAD_BITS);
         end
     else % sending data!
-        if mod(i1,OS_RATE) == 1                 % Latency check
+        if mod(i1,OS_RATE) == 1                     % Latency check
             d_out = step(hModulator, data_in == [true ; true]);
             diLatch = sign(real(d_out));
             dqLatch = sign(imag(d_out));
+            %diLatch = real(d_out);
+            %dqLatch = imag(d_out);
         end
     end
-    d_out = complex(diLatch, dqLatch);          % output i and q bit
+    d_out = complex(diLatch, dqLatch);              % output i and q bit
 end
